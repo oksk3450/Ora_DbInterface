@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="sampleMapper">
+<!-- 회원 생성 쿼리(아래) -->
+<insert id="memberInsert">
+INSERT INTO member
+(userid, userpw, username, email, regdate, updatedate)
+VALUES (
+'#{userid}','#{userpw}','#{username}',
+'#{email}',SYSDATE,SYSDATE
+)
+</insert>
+<!-- 회원 조회 쿼리(아래) -->
+<select id="memberSelect" resultType="com.human.vo.MemberVO">
+select * from member order by regdate desc
+</select>
+<!-- 회원 상세보기 쿼리(아래) -->
+<select id="memberView" resultType="com.human.vo.MemberVO">
+select * from member where userid = #{userid}
+</select>
+<!-- 회원 수정 쿼리(아래) -->
+<update id="memberUpdate">
+update member set
+userpw = #{userpw},
+username = #{username},
+email = #{email},
+updatedate = sysdate
+where userid = #{userid}
+</update>
+<!-- 회원 삭제 쿼리(아래) -->
+<delete id="memberdelete">
+delete from member where userid = #{userid}
+</delete>
+</mapper>

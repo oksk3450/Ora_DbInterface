@@ -2,5 +2,10 @@
 - 오라클에 member테이블 생성 + 더미데이터입력
 - Ora_DbInterface 스프링MVC프로젝트 생성
 - pom.xml로 자바,스프링,마이바티스 업데이트후 메이븐 업데이트.
--프로젝트 Facets부분 web_module > 3.1로, web.xml의 웹모듈버전 2.5 > 3.1로, 자바는 1.8로 변경
--Git연동 후 커밋ㄴ
+- 프로젝트 Facets부분 web_module > 3.1로, web.xml의 웹모듈버전 2.5 > 3.1로, 자바는 1.8로 변경
+- Git연동 후 커밋
+- root-context.xml에 db커넥션 빈생성.
+- log4jdbc.log4j2.properties 필수생성(쿼리) 콘솔 디버그 기능
+- mappers폴더 생성후 sampleMapper.xml 쿼리파일생성(CRUD쿼리)
+- 쿼리에서 발생되는 반환값을 담을 공간은 VO클래스로 해결
+- 서비스패키지(DAO포함)생성.

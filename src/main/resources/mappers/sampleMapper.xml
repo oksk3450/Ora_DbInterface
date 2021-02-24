@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="sampleMapper">
-<!-- 회원 생성 쿼리(아래) -->
+<!-- 회원 입력 쿼리(아래) -->
 <insert id="memberInsert">
-INSERT INTO member
+INSERT INTO member 
 (userid, userpw, username, email, regdate, updatedate)
 VALUES (
-'#{userid}','#{userpw}','#{username}',
-'#{email}',SYSDATE,SYSDATE
+#{userid},#{userpw},#{username}
+,#{email},SYSDATE,SYSDATE
 )
 </insert>
 <!-- 회원 조회 쿼리(아래) -->
@@ -20,15 +20,16 @@ select * from member where userid = #{userid}
 </select>
 <!-- 회원 수정 쿼리(아래) -->
 <update id="memberUpdate">
-update member set
-userpw = #{userpw},
-username = #{username},
-email = #{email},
-updatedate = sysdate
+update member set 
+userpw = #{userpw}
+,username = #{username}
+,email = #{email}
+,regdate = #{regdate}
+,updatedate = #{updatedate}
 where userid = #{userid}
 </update>
 <!-- 회원 삭제 쿼리(아래) -->
-<delete id="memberdelete">
+<delete id="memberDelete">
 delete from member where userid = #{userid}
 </delete>
 </mapper>
